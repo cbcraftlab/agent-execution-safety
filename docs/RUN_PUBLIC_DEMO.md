@@ -2,6 +2,8 @@
 
 This runbook shows how to create a public safety scenario, provide normalized events, run the public demo evaluator, and read the generated report.
 
+If you want to test your own agent rather than the bundled demo fixtures, start with [TEST_YOUR_AGENT.md](TEST_YOUR_AGENT.md).
+
 The public demo is intentionally limited:
 
 - it does not run a real agent;

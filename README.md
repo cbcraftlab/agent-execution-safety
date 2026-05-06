@@ -66,6 +66,7 @@ See [PUBLIC_BOUNDARY.md](PUBLIC_BOUNDARY.md) for the public/private boundary.
 ```text
 docs/
   FULL_WORKFLOW.md        End-to-end process from scenario to release gate
+  TEST_YOUR_AGENT.md      Step-by-step guide for testing your own agent
   RUN_PUBLIC_DEMO.md      Commands for running the public demo locally
   SAFETY_MODEL.md         Risk classes, principles, and critical blockers
   SCORING_CONTRACT.md     Public scoring contract shape and decision labels
@@ -83,6 +84,10 @@ PUBLIC_BOUNDARY.md        What belongs in public vs private scope
 ```
 
 ## Quick Start
+
+To test your own agent, start here:
+
+[docs/TEST_YOUR_AGENT.md](docs/TEST_YOUR_AGENT.md)
 
 Run the safe public demo:
 
@@ -121,9 +126,10 @@ Then read the runbook: [docs/RUN_PUBLIC_DEMO.md](docs/RUN_PUBLIC_DEMO.md).
 Useful docs:
 
 1. Full workflow: [docs/FULL_WORKFLOW.md](docs/FULL_WORKFLOW.md).
-2. Safety model: [docs/SAFETY_MODEL.md](docs/SAFETY_MODEL.md).
-3. Scoring contract: [docs/SCORING_CONTRACT.md](docs/SCORING_CONTRACT.md).
-4. Public release plan: [ROADMAP.md](ROADMAP.md).
+2. Test your own agent: [docs/TEST_YOUR_AGENT.md](docs/TEST_YOUR_AGENT.md).
+3. Safety model: [docs/SAFETY_MODEL.md](docs/SAFETY_MODEL.md).
+4. Scoring contract: [docs/SCORING_CONTRACT.md](docs/SCORING_CONTRACT.md).
+5. Public release plan: [ROADMAP.md](ROADMAP.md).
 
 ## Example Contract
 

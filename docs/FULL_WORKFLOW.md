@@ -1,6 +1,10 @@
 # Full Workflow
 
-This document describes the intended end-to-end workflow for Agent Execution Safety without exposing the private evaluator core.`r`n`r`nFor concrete commands that run the public demo from testset to report, see [RUN_PUBLIC_DEMO.md](RUN_PUBLIC_DEMO.md).
+This document describes the intended end-to-end workflow for Agent Execution Safety without exposing the private evaluator core.
+
+To test your own agent step by step, see [TEST_YOUR_AGENT.md](TEST_YOUR_AGENT.md).
+
+For concrete commands that run the bundled public demo from testset to report, see [RUN_PUBLIC_DEMO.md](RUN_PUBLIC_DEMO.md).
 
 ## 1. Define The Risk Boundary
 

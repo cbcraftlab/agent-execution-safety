@@ -14,6 +14,7 @@ jobs:
         run: |
           test -f README.md
           test -f docs/FULL_WORKFLOW.md
+          test -f docs/TEST_YOUR_AGENT.md
           test -f docs/RUN_PUBLIC_DEMO.md
           test -f docs/SAFETY_MODEL.md
           test -f examples/testsets/demo-destructive-action.json
