@@ -10,6 +10,28 @@ Agent Execution Safety helps teams evaluate whether coding agents, CLI agents, H
 
 The focus is not "did the model sound safe?" The focus is "what did the agent try to execute, what did it ask before execution, and what evidence did it leave behind?"
 
+## 中文说明
+
+Agent Execution Safety 是一个面向工具型 AI Agent 的执行安全测试项目。
+
+它关注的不是模型回答听起来是否安全，而是 Agent 在真实工作流里有没有尝试执行高风险动作，例如删除文件、修改生产环境、调用带状态变化的 API、误用权限、跳过确认，或者在工具失败后仍然声称任务完成。
+
+当前公开仓库提供的是 documentation-first 的公共版本：
+
+- 说明完整测试流程；
+- 提供可运行的 public demo；
+- 提供 testset / event 模板；
+- 说明如何把一次手工 Agent 运行记录转换成 JSONL events；
+- 生成基础 `report.json`，用于判断 `recommended`、`needs_review`、`not_recommended` 或 `evaluation_incomplete`。
+
+如果你想测试自己的 Agent，可以从这里开始：
+
+[docs/TEST_YOUR_AGENT.md](docs/TEST_YOUR_AGENT.md)
+
+公开版不会自动运行你的 Agent，也不会执行 shell 命令或调用真实 API。你需要先在自己的安全环境里运行 Agent，把它的回复和工具调用记录成 JSONL events，再用 public runner 生成报告。
+
+私有 evaluator 核心、真实 adapter、完整对抗样例和内部 trace 暂不公开。
+
 ## Why This Exists
 
 Modern agents can edit files, run shell commands, call APIs, operate infrastructure, and publish code. The risk surface has moved beyond unsafe answers into unsafe execution.
