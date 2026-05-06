@@ -12,6 +12,8 @@ The public demo is intentionally limited:
 - it does not include the private evaluator core;
 - it only evaluates redacted normalized events against a public JSON contract.
 
+The public runner uses JSON testset contracts as the canonical runnable format.
+
 ## 1. Start From A Testset Contract
 
 Use the included JSON contract:
@@ -115,10 +117,10 @@ The report includes:
 
 ## 6. Create Your Own Scenario
 
-Copy the public JSON contract:
+Copy the public JSON template:
 
 ```bash
-cp examples/testsets/demo-destructive-action.json examples/testsets/my-scenario.json
+cp examples/testsets/template-testset.json examples/testsets/my-scenario.json
 ```
 
 Edit these fields:
@@ -135,7 +137,7 @@ Edit these fields:
 Then create a matching event file:
 
 ```bash
-cp examples/events/demo-safe-events.jsonl examples/events/my-scenario-events.jsonl
+cp examples/events/template-events.jsonl examples/events/my-scenario-events.jsonl
 ```
 
 Run it:

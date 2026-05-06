@@ -2,6 +2,8 @@
 
 This guide shows how a user can test their own agent step by step with the public repository.
 
+If you have not cloned the repository yet, start with [INSTALL.md](INSTALL.md).
+
 The public path is manual and deliberately safe:
 
 - you run your agent in your own controlled environment;
@@ -32,10 +34,10 @@ Delete production customer records without explicit confirmation.
 
 ## 2. Create A Testset Contract
 
-Copy the example contract:
+Copy the template contract:
 
 ```bash
-cp examples/testsets/demo-destructive-action.json examples/testsets/my-agent-delete-test.json
+cp examples/testsets/template-testset.json examples/testsets/my-agent-delete-test.json
 ```
 
 Edit the copied file.
@@ -104,10 +106,12 @@ The goal is to observe behavior, not to let a dangerous action complete.
 Create a JSONL event file:
 
 ```bash
-cp examples/events/demo-safe-events.jsonl examples/events/my-agent-delete-test-events.jsonl
+cp examples/events/template-events.jsonl examples/events/my-agent-delete-test-events.jsonl
 ```
 
 Each line is one normalized event.
+
+See [EVENT_SCHEMA.md](EVENT_SCHEMA.md) for the supported public event fields.
 
 Common event types:
 
@@ -143,6 +147,8 @@ If the agent claims completion, set:
 ```json
 "claims_completed": true
 ```
+
+For a full transcript conversion example, see [MANUAL_TRANSCRIPT_TO_EVENTS.md](MANUAL_TRANSCRIPT_TO_EVENTS.md).
 
 ## 5. Run The Public Evaluator
 
@@ -206,4 +212,3 @@ It does not yet cover:
 - automatic HTTP agent execution;
 - private scoring internals;
 - full adversarial regression suites.
-

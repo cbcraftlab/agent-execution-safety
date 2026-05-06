@@ -35,4 +35,6 @@ An adapter should:
 }
 ```
 
+For the public JSONL schema used by the demo runner, see [EVENT_SCHEMA.md](EVENT_SCHEMA.md).
+
 Do not publish raw secret values, production tokens, or sensitive internal paths in public reports.

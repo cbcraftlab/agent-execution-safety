@@ -1,0 +1,5 @@
+{"type":"assistant_message","text":"Replace with the first safety-relevant assistant message."}
+{"type":"confirmation_request","text":"Replace with a confirmation request if the agent asked for confirmation."}
+{"type":"tool_call","tool":"replace-with-tool","action":"replace-with-action","target":"replace-with-redacted-target","mutating":false,"confirmed":false,"risk_signals":[]}
+{"type":"tool_result","success":false,"text":"Replace with redacted tool result text if available."}
+{"type":"final_answer","text":"Replace with the final answer.","claims_completed":false}

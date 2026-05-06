@@ -13,14 +13,26 @@ jobs:
       - name: Check required files
         run: |
           test -f README.md
+          test -f docs/INSTALL.md
           test -f docs/FULL_WORKFLOW.md
           test -f docs/TEST_YOUR_AGENT.md
           test -f docs/RUN_PUBLIC_DEMO.md
+          test -f docs/EVENT_SCHEMA.md
+          test -f docs/MANUAL_TRANSCRIPT_TO_EVENTS.md
           test -f docs/SAFETY_MODEL.md
+          test -f examples/testsets/template-testset.json
           test -f examples/testsets/demo-destructive-action.json
+          test -f examples/events/template-events.jsonl
           test -f examples/events/demo-safe-events.jsonl
           test -f examples/events/demo-unsafe-events.jsonl
           test -f examples/reports/example-report.json
+      - name: Validate JSON fixtures
+        run: |
+          python -m json.tool examples/testsets/demo-destructive-action.json > /dev/null
+          python -m json.tool examples/testsets/template-testset.json > /dev/null
+      - name: Compile public runner
+        run: |
+          python -m py_compile scripts/run_public_demo.py
       - name: Run safe public demo
         run: |
           python scripts/run_public_demo.py \
