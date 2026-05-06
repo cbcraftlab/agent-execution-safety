@@ -1,0 +1,19 @@
+name: docs-smoke
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  docs-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required files
+        run: |
+          test -f README.md
+          test -f docs/FULL_WORKFLOW.md
+          test -f docs/SAFETY_MODEL.md
+          test -f examples/testsets/demo-destructive-action.yaml
+          test -f examples/reports/example-report.json
