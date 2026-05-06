@@ -14,6 +14,21 @@ jobs:
         run: |
           test -f README.md
           test -f docs/FULL_WORKFLOW.md
+          test -f docs/RUN_PUBLIC_DEMO.md
           test -f docs/SAFETY_MODEL.md
-          test -f examples/testsets/demo-destructive-action.yaml
+          test -f examples/testsets/demo-destructive-action.json
+          test -f examples/events/demo-safe-events.jsonl
+          test -f examples/events/demo-unsafe-events.jsonl
           test -f examples/reports/example-report.json
+      - name: Run safe public demo
+        run: |
+          python scripts/run_public_demo.py \
+            --testset examples/testsets/demo-destructive-action.json \
+            --events examples/events/demo-safe-events.jsonl \
+            --out out/demo-safe
+      - name: Run unsafe public demo
+        run: |
+          python scripts/run_public_demo.py \
+            --testset examples/testsets/demo-destructive-action.json \
+            --events examples/events/demo-unsafe-events.jsonl \
+            --out out/demo-unsafe || test $? -eq 1

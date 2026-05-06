@@ -66,13 +66,17 @@ See [PUBLIC_BOUNDARY.md](PUBLIC_BOUNDARY.md) for the public/private boundary.
 ```text
 docs/
   FULL_WORKFLOW.md        End-to-end process from scenario to release gate
+  RUN_PUBLIC_DEMO.md      Commands for running the public demo locally
   SAFETY_MODEL.md         Risk classes, principles, and critical blockers
   SCORING_CONTRACT.md     Public scoring contract shape and decision labels
   ADAPTERS.md             Adapter responsibilities and event shape
   RELEASE_GOVERNANCE.md   Release gate and retest policy
 examples/
   testsets/               Harmless public scenario examples
+  events/                 Redacted normalized event fixtures
   reports/                Redacted report examples
+scripts/
+  run_public_demo.py      Limited public demo runner
 ROADMAP.md                Public release direction
 SECURITY.md               Security reporting and contribution boundary
 PUBLIC_BOUNDARY.md        What belongs in public vs private scope
@@ -80,11 +84,46 @@ PUBLIC_BOUNDARY.md        What belongs in public vs private scope
 
 ## Quick Start
 
-1. Read the full workflow: [docs/FULL_WORKFLOW.md](docs/FULL_WORKFLOW.md).
-2. Review the safety model: [docs/SAFETY_MODEL.md](docs/SAFETY_MODEL.md).
-3. Inspect a testset contract: [examples/testsets/demo-destructive-action.yaml](examples/testsets/demo-destructive-action.yaml).
-4. Compare the report shape: [examples/reports/example-report.json](examples/reports/example-report.json).
-5. Check the public release plan: [ROADMAP.md](ROADMAP.md).
+Run the safe public demo:
+
+```bash
+python scripts/run_public_demo.py \
+  --testset examples/testsets/demo-destructive-action.json \
+  --events examples/events/demo-safe-events.jsonl \
+  --out out/demo-safe
+```
+
+Expected result:
+
+```text
+decision: recommended
+score: 100
+```
+
+Run the intentionally unsafe fixture:
+
+```bash
+python scripts/run_public_demo.py \
+  --testset examples/testsets/demo-destructive-action.json \
+  --events examples/events/demo-unsafe-events.jsonl \
+  --out out/demo-unsafe || true
+```
+
+Expected result:
+
+```text
+decision: not_recommended
+score: 40
+```
+
+Then read the runbook: [docs/RUN_PUBLIC_DEMO.md](docs/RUN_PUBLIC_DEMO.md).
+
+Useful docs:
+
+1. Full workflow: [docs/FULL_WORKFLOW.md](docs/FULL_WORKFLOW.md).
+2. Safety model: [docs/SAFETY_MODEL.md](docs/SAFETY_MODEL.md).
+3. Scoring contract: [docs/SCORING_CONTRACT.md](docs/SCORING_CONTRACT.md).
+4. Public release plan: [ROADMAP.md](ROADMAP.md).
 
 ## Example Contract
 
@@ -117,3 +156,6 @@ critical_blockers:
 ## Status
 
 Early public specification. The next public step is to add a safe runnable demo that can evaluate redacted/manual traces without shipping the private evaluator or adversarial corpus.
+
+
+

@@ -1,6 +1,6 @@
 # Full Workflow
 
-This document describes the intended end-to-end workflow for Agent Execution Safety without exposing the private evaluator core.
+This document describes the intended end-to-end workflow for Agent Execution Safety without exposing the private evaluator core.`r`n`r`nFor concrete commands that run the public demo from testset to report, see [RUN_PUBLIC_DEMO.md](RUN_PUBLIC_DEMO.md).
 
 ## 1. Define The Risk Boundary
 
@@ -131,3 +131,4 @@ Examples:
 ## Public vs Private Scope
 
 Public docs should explain the workflow and safe examples. Private suites may include deeper adversarial cases, proprietary adapters, and internal policy details.
+
